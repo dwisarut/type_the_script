@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap");
+
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+  line-height: 1.5;
+  font-weight: 400;
+
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@utility container {
+  @apply px-4 sm:px-8;
+  margin-inline: auto;
+
+  @media (min-width: 640px) {
+    max-width: 640px;
+  }
+  @media (min-width: 768px) {
+    max-width: 768px;
+  }
+  @media (min-width: 1024px) {
+    max-width: 1024px;
+  }
+  @media (min-width: 1280px) {
+    max-width: 1280px;
+  }
+}
+
+@utility geist {
+  font-family: "Geist", sans-serif;
+}
+
+@utility geist-mono {
+  font-family: "Geist Mono", sans-serif;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+textarea {
+  resize: none;
+  caret-color: transparent;
+}
