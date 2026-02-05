@@ -9,20 +9,40 @@ function getRandomQuote() {
 
 function TypeArea() {
   const [quote] = useState(() => getRandomQuote());
+  const [text, setText] = useState("");
+  const [cursorPosition, setCursorPosition] = useState(0);
 
-  function getKey(event: React.KeyboardEvent<HTMLDivElement>) {
-    console.log(event.key);
+  function handleKey(event: React.KeyboardEvent<HTMLDivElement>) {
+    if (event.key === "Backspace") {
+      setText((text) => text.slice(0, -1));
+      setCursorPosition((pos) => Math.max(0, pos - 1));
+    } else if (event.key.length === 1) {
+      setText((text) => text + event.key);
+      setCursorPosition((pos) => pos + 1);
+    }
   }
 
   return (
     <>
-      <h2 className="geist-mono text-gray-300">{quote}</h2>
-      {/* <textarea
-        name="typecheck"
-        className="w-full geist-mono text-gray-300"
-        onKeyDown={getKey}
-      /> */}
-      <div className="w-full h-32" tabIndex={0} onKeyDown={getKey}></div>
+      <div
+        className="w-full h-32 outline-none"
+        tabIndex={0}
+        onKeyDown={handleKey}
+      >
+        {quote.split("").map((char, i) => {
+          let color = "text-gray-500";
+          if (i < text.length) {
+            color = text[i] === char ? "text-white" : "text-red-400";
+          }
+
+          return (
+            <span key={i} className={`geist-mono text-2xl ${color}`}>
+              {char}
+            </span>
+          );
+        })}
+      </div>
+      <span>|</span>
     </>
   );
 }
