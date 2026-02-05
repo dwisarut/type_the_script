@@ -33,6 +33,19 @@
   }
 }
 
+@utility blink {
+  animation: blink-animation 0.7s infinite alternate;
+}
+
+@keyframes blink-animation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 @utility geist {
   font-family: "Geist", sans-serif;
 }

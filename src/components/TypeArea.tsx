@@ -40,7 +40,7 @@ function TypeArea() {
           if (i === cursorPosition) {
             return (
               <span key={i} className={`geist-mono text-2xl ${color}`}>
-                <span className="bg-amber-400 inline-block w-0.5 h-[1.1em] align-middle"></span>
+                <span className="bg-amber-400 inline-block w-0.5 h-[1.1em] align-middle blink"></span>
                 {char}
               </span>
             );
