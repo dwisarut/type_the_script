@@ -16,9 +16,11 @@ function TypeArea() {
     if (event.key === "Backspace") {
       setText((text) => text.slice(0, -1));
       setCursorPosition((pos) => Math.max(0, pos - 1));
+      console.log("Position", cursorPosition);
     } else if (event.key.length === 1) {
       setText((text) => text + event.key);
       setCursorPosition((pos) => pos + 1);
+      console.log("Position", cursorPosition);
     }
   }
 
@@ -35,6 +37,15 @@ function TypeArea() {
             color = text[i] === char ? "text-white" : "text-red-400";
           }
 
+          if (i === cursorPosition) {
+            return (
+              <span key={i} className={`geist-mono text-2xl ${color}`}>
+                <span className="bg-amber-400 inline-block w-0.5 h-[1.1em] align-middle"></span>
+                {char}
+              </span>
+            );
+          }
+
           return (
             <span key={i} className={`geist-mono text-2xl ${color}`}>
               {char}
@@ -42,7 +53,6 @@ function TypeArea() {
           );
         })}
       </div>
-      <span>|</span>
     </>
   );
 }
