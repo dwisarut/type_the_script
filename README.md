@@ -10,7 +10,7 @@
     ```
 2. Install dependencies
 
-    Installing all depedencies for frontend, then install it in backend
+    Installing all depedencies
     
     ```
     npm install
